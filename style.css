@@ -1,0 +1,30 @@
+/*
+Theme Name: blohm
+Theme URI: http://blohm.com/theme
+Author: Werner Blohm
+Author URI: http://www.blohm.com
+GitHub Theme URI: https://github.com/wernerblohm/blohm
+Description: Blohm Parent Theme is made as a solid starting point for your next theme project and WordPress website. Bootstrap is a responsive system that includes predefined classes for easy layout options. Blohm Theme is based on Bootstrap, including Font Awesome support, built-in widget slider and more. And form the basis for basic websites. A child theme is available on. https://blohm.com/blohm-child
+Version: 0.9.1
+License: blohm WordPress Theme, Copyright 2018 Werner Blohm
+blohm is distributed under the terms of the GNU GPL version 2
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: blohm
+Tags: one-column, custom-menu, featured-images, theme-options, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+blohm is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+
+Resource Licenses:
+Font Awesome: http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+Bootstrap: http://getbootstrap.com | https://github.com/twbs/bootstrap/blob/master/LICENSE (Code licensed under MIT, documentation under CC BY 3.0.)
+and of course
+jQuery: https://jquery.org | (Code licensed under MIT)
+WP Bootstrap Navwalker by Edward McIntyre: https://github.com/twittem/wp-bootstrap-navwalker | GNU GPL
+*/
+
+/*
+This file is just used to identify the theme in WordPress.
+The compiled CSS output can be found in /css/theme.css
+...Yep I am alive!
+*/
