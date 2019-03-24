@@ -39,7 +39,10 @@ $container = get_theme_mod( 'blohm_container_type' );
 
 					<?php /* Start the Loop */ ?>
 
-					<?php while ( have_posts() ) : the_post(); ?>
+					<?php
+					while ( have_posts() ) :
+						the_post();
+						?>
 
 						<?php
 

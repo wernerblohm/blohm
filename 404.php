@@ -50,11 +50,11 @@ $container = get_theme_mod( 'blohm_container_type' );
 										<?php
 										wp_list_categories(
 											array(
-												'orderby'    => 'count',
-												'order'      => 'DESC',
+												'orderby'  => 'count',
+												'order'    => 'DESC',
 												'show_count' => 1,
-												'title_li'   => '',
-												'number'     => 10,
+												'title_li' => '',
+												'number'   => 10,
 											)
 										);
 										?>

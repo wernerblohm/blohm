@@ -9,21 +9,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$my_orders_columns = apply_filters( 'woocommerce_my_account_my_orders_columns', array(
-	'order-number'  => __( 'Order', 'blohm' ),
-	'order-date'    => __( 'Date', 'blohm' ),
-	'order-status'  => __( 'Status', 'blohm' ),
-	'order-total'   => __( 'Total', 'blohm' ),
-	'order-actions' => '&nbsp;',
-) );
+$my_orders_columns = apply_filters(
+	'woocommerce_my_account_my_orders_columns',
+	array(
+		'order-number'  => __( 'Order', 'blohm' ),
+		'order-date'    => __( 'Date', 'blohm' ),
+		'order-status'  => __( 'Status', 'blohm' ),
+		'order-total'   => __( 'Total', 'blohm' ),
+		'order-actions' => '&nbsp;',
+	)
+);
 
-$customer_orders = get_posts( apply_filters( 'woocommerce_my_account_my_orders_query', array(
-	'numberposts' => $order_count,
-	'meta_key'    => '_customer_user',
-	'meta_value'  => get_current_user_id(),
-	'post_type'   => wc_get_order_types( 'view-orders' ),
-	'post_status' => array_keys( wc_get_order_statuses() ),
-) ) );
+$customer_orders = get_posts(
+	apply_filters(
+		'woocommerce_my_account_my_orders_query',
+		array(
+			'numberposts' => $order_count,
+			'meta_key'    => '_customer_user',
+			'meta_value'  => get_current_user_id(),
+			'post_type'   => wc_get_order_types( 'view-orders' ),
+			'post_status' => array_keys( wc_get_order_statuses() ),
+		)
+	)
+);
 
 if ( $customer_orders ) : ?>
 
@@ -40,7 +48,8 @@ if ( $customer_orders ) : ?>
 		</thead>
 
 		<tbody>
-			<?php foreach ( $customer_orders as $customer_order ) :
+			<?php
+			foreach ( $customer_orders as $customer_order ) :
 				$order      = wc_get_order( $customer_order );
 				$item_count = $order->get_item_count();
 				?>
@@ -70,7 +79,7 @@ if ( $customer_orders ) : ?>
 							<?php elseif ( 'order-actions' === $column_id ) : ?>
 								<?php
 								$actions = wc_get_account_orders_actions( $order );
-								
+
 								if ( ! empty( $actions ) ) {
 									foreach ( $actions as $key => $action ) {
 										echo '<a href="' . esc_url( $action['url'] ) . '" class="btn btn-outline-primary ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';

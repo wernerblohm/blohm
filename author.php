@@ -66,7 +66,10 @@ $container = get_theme_mod( 'blohm_container_type' );
 
 					<!-- The Loop -->
 					<?php if ( have_posts() ) : ?>
-						<?php while ( have_posts() ) : the_post(); ?>
+						<?php
+						while ( have_posts() ) :
+							the_post();
+							?>
 							<li>
 								<?php
 								printf(

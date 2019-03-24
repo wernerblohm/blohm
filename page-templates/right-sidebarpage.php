@@ -22,12 +22,23 @@ $container = get_theme_mod( 'blohm_container_type' );
 		<div class="row">
 
 			<div
-				class="<?php if ( is_active_sidebar( 'right-sidebar' ) ) : ?>col-md-8<?php else : ?>col-md-12<?php endif; ?> content-area"
+				class="
+				<?php
+				if ( is_active_sidebar( 'right-sidebar' ) ) :
+					?>
+					col-md-8
+					<?php
+else :
+	?>
+					col-md-12<?php endif; ?> content-area"
 				id="primary">
 
 				<main class="site-main" id="main" role="main">
 
-					<?php while ( have_posts() ) : the_post(); ?>
+					<?php
+					while ( have_posts() ) :
+						the_post();
+						?>
 
 						<?php get_template_part( 'loop-templates/content', 'page' ); ?>
 

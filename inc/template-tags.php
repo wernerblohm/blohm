@@ -20,14 +20,16 @@ if ( ! function_exists( 'blohm_posted_on' ) ) {
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s"> (%4$s) </time>';
 		}
-		$time_string = sprintf( $time_string,
+		$time_string = sprintf(
+			$time_string,
 			esc_attr( get_the_date( 'c' ) ),
 			esc_html( get_the_date() ),
 			esc_attr( get_the_modified_date( 'c' ) ),
 			esc_html( get_the_modified_date() )
 		);
 		$posted_on   = apply_filters(
-			'blohm_posted_on', sprintf(
+			'blohm_posted_on',
+			sprintf(
 				'<span class="posted-on">%1$s <a href="%2$s" rel="bookmark">%3$s</a></span>',
 				esc_html_x( 'Posted on', 'post date', 'blohm' ),
 				esc_url( get_permalink() ),
@@ -35,7 +37,8 @@ if ( ! function_exists( 'blohm_posted_on' ) ) {
 			)
 		);
 		$byline      = apply_filters(
-			'blohm_posted_by', sprintf(
+			'blohm_posted_by',
+			sprintf(
 				'<span class="byline"> %1$s<span class="author vcard"><a class="url fn n" href="%2$s"> %3$s</a></span></span>',
 				$posted_on ? esc_html_x( 'by', 'post author', 'blohm' ) : esc_html_x( 'Posted by', 'post author', 'blohm' ),
 				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
@@ -94,12 +97,14 @@ if ( ! function_exists( 'blohm_categorized_blog' ) ) {
 	function blohm_categorized_blog() {
 		if ( false === ( $all_the_cool_cats = get_transient( 'blohm_categories' ) ) ) {
 			// Create an array of all the categories that are attached to posts.
-			$all_the_cool_cats = get_categories( array(
-				'fields'     => 'ids',
-				'hide_empty' => 1,
-				// We only need to know if there is more than one category.
-				'number'     => 2,
-			) );
+			$all_the_cool_cats = get_categories(
+				array(
+					'fields'     => 'ids',
+					'hide_empty' => 1,
+					// We only need to know if there is more than one category.
+					'number'     => 2,
+				)
+			);
 			// Count the number of categories that are attached to the posts.
 			$all_the_cool_cats = count( $all_the_cool_cats );
 			set_transient( 'blohm_categories', $all_the_cool_cats );
@@ -119,7 +124,7 @@ if ( ! function_exists( 'blohm_categorized_blog' ) ) {
  * Flush out the transients used in blohm_categorized_blog.
  */
 add_action( 'edit_category', 'blohm_category_transient_flusher' );
-add_action( 'save_post',     'blohm_category_transient_flusher' );
+add_action( 'save_post', 'blohm_category_transient_flusher' );
 
 if ( ! function_exists( 'blohm_category_transient_flusher' ) ) {
 	function blohm_category_transient_flusher() {
